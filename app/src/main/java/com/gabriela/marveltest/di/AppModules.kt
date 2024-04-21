@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.gabriela.marveltest.data.local.MarvelCharacterDatabase
 import com.gabriela.marveltest.data.remote.MarvelAPI
 import com.gabriela.marveltest.domain.MarvelCharacterBusiness
-import com.gabriela.marveltest.presentation.adapter.MarvelCharacterAdapter
+import com.gabriela.marveltest.presentation.main.adapter.MarvelCharacterAdapter
 import com.gabriela.marveltest.presentation.favorite.MarvelFavoriteViewModel
 import com.gabriela.marveltest.presentation.favorite.adapter.MarvelFavoriteAdapter
 import com.gabriela.marveltest.presentation.main.MarvelCharacterViewModel

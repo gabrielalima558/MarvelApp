@@ -1,4 +1,4 @@
-package com.gabriela.marveltest.presentation.adapter
+package com.gabriela.marveltest.presentation.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

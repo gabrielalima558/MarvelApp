@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import com.gabriela.marveltest.databinding.ActivityMainBinding
 import com.gabriela.marveltest.domain.Character
-import com.gabriela.marveltest.presentation.adapter.MarvelCharacterAdapter
+import com.gabriela.marveltest.presentation.main.adapter.MarvelCharacterAdapter
 import com.gabriela.marveltest.presentation.favorite.FavoriteActivity
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

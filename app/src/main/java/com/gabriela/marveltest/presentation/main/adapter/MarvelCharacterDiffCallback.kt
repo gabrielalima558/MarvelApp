@@ -1,4 +1,4 @@
-package com.gabriela.marveltest.presentation.adapter
+package com.gabriela.marveltest.presentation.main.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.gabriela.marveltest.domain.Character
