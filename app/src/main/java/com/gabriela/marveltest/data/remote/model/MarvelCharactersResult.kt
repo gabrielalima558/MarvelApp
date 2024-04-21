@@ -1,4 +1,4 @@
-package com.gabriela.marveltest.data.model
+package com.gabriela.marveltest.data.remote.model
 
 data class MarvelCharactersResult (
     val offset: Int,

@@ -1,6 +1,6 @@
 package com.gabriela.marveltest.domain
 
-import com.gabriela.marveltest.data.model.MarvelCharacter
+import com.gabriela.marveltest.data.remote.model.MarvelCharacter
 
 data class Characters (
     val offset: Int,

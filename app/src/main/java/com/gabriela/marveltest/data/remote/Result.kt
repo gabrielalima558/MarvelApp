@@ -1,4 +1,4 @@
-package com.gabriela.marveltest.data
+package com.gabriela.marveltest.data.remote
 
 sealed class Result<out T> {
     data class Success<out T>(val data: T) : Result<T>()

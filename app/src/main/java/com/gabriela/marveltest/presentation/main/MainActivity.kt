@@ -1,5 +1,6 @@
-package com.gabriela.marveltest.presentation
+package com.gabriela.marveltest.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.gabriela.marveltest.databinding.ActivityMainBinding
 import com.gabriela.marveltest.domain.Character
 import com.gabriela.marveltest.presentation.adapter.MarvelCharacterAdapter
+import com.gabriela.marveltest.presentation.favorite.FavoriteActivity
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,6 +23,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         buildList()
         buildSearcher()
+        openFavorites()
+    }
+
+    private fun openFavorites() {
+        binding.favoritesButton.setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun buildList(filteredText: String = String()) =

@@ -1,6 +1,6 @@
-package com.gabriela.marveltest.data
+package com.gabriela.marveltest.data.remote
 
-import com.gabriela.marveltest.data.model.MarvelResult
+import com.gabriela.marveltest.data.remote.model.MarvelResult
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -76,7 +76,7 @@ interface MarvelAPI {
             val original = chain.request()
             val originalHttpUrl = original.url
             val ts = (Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis / 1000L)
-            val hash = generateHash( API_KEY,PRIVATE_KEY, ts) // Calculate MD5 hash
+            val hash = generateHash( API_KEY, PRIVATE_KEY, ts) // Calculate MD5 hash
             val url = originalHttpUrl.newBuilder()
                 .addQueryParameter("apikey", API_KEY)
                 .addQueryParameter("ts", ts.toString())
