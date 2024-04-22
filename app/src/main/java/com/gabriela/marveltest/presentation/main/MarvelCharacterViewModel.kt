@@ -1,27 +1,24 @@
 package com.gabriela.marveltest.presentation.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gabriela.marveltest.data.remote.Result
-import com.gabriela.marveltest.repository.MarvelCharacterRepository
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
-import com.gabriela.marveltest.data.mappers.toCharacterDomain
 import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.main.CharacterState
+import com.gabriela.marveltest.domain.main.MarvelCharacterHandlerBusiness
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MarvelCharacterViewModel(private val repository: MarvelCharacterRepository): ViewModel() {
+class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusiness) : ViewModel() {
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var charactersState = MutableLiveData<List<Character>?>()
-    val charactersStateObserver: LiveData<List<Character>?> = charactersState
+    private var charactersState = MutableLiveData<CharacterState>()
+    val charactersStateObserver: LiveData<CharacterState> = charactersState
 
     init {
         getCharacters()
@@ -29,27 +26,14 @@ class MarvelCharacterViewModel(private val repository: MarvelCharacterRepository
 
     private fun getCharacters() {
         viewModelScope.launch {
-            repository.getMarvelCharacters().collectLatest { result ->
-               when (result) {
-                   is Result.Success -> {
-                       val characters = result.data.toCharacterDomain()
-                       charactersState.value = characters
-                   }
-
-                   is Result.Error -> {
-                       val error = result.exception.localizedMessage
-                       Log.e("ERROR", error.toString())
-                   }
-               }
-
-            }
+            charactersState.value = business.getMarvelCharactersState()
         }
     }
 
     fun insertFavoriteCharacter(character: Character) {
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                repository.setMarvelInfo(character)
+                business.insertCharacter(character)
             }
         }
     }

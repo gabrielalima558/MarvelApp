@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import com.gabriela.marveltest.databinding.ActivityMainBinding
 import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.main.CharacterState
 import com.gabriela.marveltest.presentation.main.adapter.MarvelCharacterAdapter
 import com.gabriela.marveltest.presentation.favorite.FavoriteActivity
 import org.koin.android.ext.android.inject
@@ -37,8 +38,11 @@ class MainActivity : AppCompatActivity() {
         with(binding.recycler) {
             viewModel.charactersStateObserver.observe(context as LifecycleOwner) { listCharacter ->
                 adapter = marvelCharacterAdapter
-                if (listCharacter != null) {
-                    crateListByFilter(filteredText, listCharacter)
+                when(listCharacter) {
+                    is CharacterState.Success -> listCharacter.character?.let { list ->
+                        crateListByFilter(filteredText, list)
+                    }
+                    is CharacterState.Error -> {}
                 }
             }
         }
