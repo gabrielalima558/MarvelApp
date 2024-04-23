@@ -7,15 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.gabriela.marveltest.domain.Character
 import com.gabriela.marveltest.domain.main.CharacterState
 import com.gabriela.marveltest.domain.main.MarvelCharacterHandlerBusiness
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusiness) : ViewModel() {
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private var charactersState = MutableLiveData<CharacterState>()
     val charactersStateObserver: LiveData<CharacterState> = charactersState
@@ -25,16 +20,14 @@ class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusin
     }
 
     private fun getCharacters() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Main) {
             charactersState.value = business.getMarvelCharactersState()
         }
     }
 
     fun insertFavoriteCharacter(character: Character) {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                business.insertCharacter(character)
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            business.insertCharacter(character)
         }
     }
 }

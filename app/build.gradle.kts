@@ -38,7 +38,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues
+    }
 }
 
 dependencies {
@@ -57,12 +60,19 @@ dependencies {
 
     //Room
     implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-paging:2.6.1")
 
-    testImplementation("junit:junit:4.13.2")
+    testImplementation("junit:junit:4.12.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    testImplementation("io.mockk:mockk-android:1.9.3")
-    testImplementation("io.mockk:mockk-agent:1.9.3")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("io.mockk:mockk:1.12.3")
+    testImplementation("io.mockk:mockk-android:1.12.3")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+
 }
