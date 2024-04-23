@@ -20,7 +20,7 @@ class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusin
     }
 
     private fun getCharacters() {
-        viewModelScope.launch(Dispatchers.Main) {
+        viewModelScope.launch {
             charactersState.value = business.getMarvelCharactersState()
         }
     }
