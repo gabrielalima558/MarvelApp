@@ -9,6 +9,7 @@ import com.gabriela.marveltest.rule.MainDispatcherRule
 import io.mockk.coEvery
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -16,6 +17,7 @@ import org.junit.Test
 
 class MarvelCharacterViewModelTest {
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 
