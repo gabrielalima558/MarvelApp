@@ -19,6 +19,7 @@ class MarvelCharacterViewHolder(
                 viewModel.insertFavoriteCharacter(character)
             } else {
                 binding.likeButton.isSelected = false
+                //
             }
         }
     }
