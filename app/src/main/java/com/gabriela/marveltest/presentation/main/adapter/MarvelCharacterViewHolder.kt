@@ -7,7 +7,7 @@ import com.gabriela.marveltest.presentation.main.MarvelCharacterViewModel
 
 class MarvelCharacterViewHolder(
     private val binding: CharacterItemBinding,
-    private val viewModel: MarvelCharacterViewModel
+    private val viewModel: MarvelCharacterViewModel,
 ) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(character: Character) {
