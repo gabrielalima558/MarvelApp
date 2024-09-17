@@ -7,7 +7,7 @@ import com.gabriela.marveltest.data.remote.Result
 import com.gabriela.marveltest.data.remote.model.MarvelCharacter
 import com.gabriela.marveltest.data.remote.model.MarvelCharactersResult
 import com.gabriela.marveltest.data.remote.model.MarvelResult
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals

@@ -1,4 +1,4 @@
-package com.gabriela.marveltest.domain
+package com.gabriela.marveltest.domain.model
 
 data class Character (
     val name: String,

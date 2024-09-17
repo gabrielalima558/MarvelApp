@@ -2,7 +2,7 @@ package com.gabriela.marveltest.data.mappers
 
 import com.gabriela.marveltest.data.local.entity.MarvelCharacterEntity
 import com.gabriela.marveltest.data.remote.model.MarvelCharacter
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 
 fun List<MarvelCharacter>?.toCharacterDomain(): List<Character>? {
     return this?.map {

@@ -2,7 +2,7 @@ package com.gabriela.marveltest.domain.main
 
 import com.gabriela.marveltest.data.remote.Result
 import com.gabriela.marveltest.data.remote.model.MarvelCharacter
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 import com.gabriela.marveltest.repository.MarvelCharacterRepository
 import io.mockk.coEvery
 import io.mockk.mockk

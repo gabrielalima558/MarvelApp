@@ -6,7 +6,7 @@ import com.gabriela.marveltest.data.mappers.toCharacterList
 import com.gabriela.marveltest.data.remote.MarvelAPI
 import com.gabriela.marveltest.data.remote.Result
 import com.gabriela.marveltest.data.remote.model.MarvelCharacter
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf

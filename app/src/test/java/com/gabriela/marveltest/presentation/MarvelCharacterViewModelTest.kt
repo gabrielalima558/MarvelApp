@@ -2,7 +2,7 @@ package com.gabriela.marveltest.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 import com.gabriela.marveltest.domain.main.CharacterState
 import com.gabriela.marveltest.domain.main.MarvelCharacterHandlerBusiness
 import com.gabriela.marveltest.presentation.main.MarvelCharacterViewModel
