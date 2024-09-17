@@ -3,7 +3,7 @@ package com.gabriela.marveltest.domain.main
 import android.util.Log
 import com.gabriela.marveltest.data.mappers.toCharacterDomain
 import com.gabriela.marveltest.data.remote.Result
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 import com.gabriela.marveltest.repository.MarvelCharacterRepository
 import kotlinx.coroutines.flow.collectLatest
 

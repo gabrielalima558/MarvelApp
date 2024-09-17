@@ -3,7 +3,7 @@ package com.gabriela.marveltest.repository
 import com.gabriela.marveltest.data.remote.model.MarvelCharacter
 import kotlinx.coroutines.flow.Flow
 import com.gabriela.marveltest.data.remote.Result
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 
 
 interface MarvelCharacterRepository {

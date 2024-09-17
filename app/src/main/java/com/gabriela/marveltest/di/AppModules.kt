@@ -3,7 +3,6 @@ package com.gabriela.marveltest.di
 import androidx.room.Room
 import com.gabriela.marveltest.data.local.MarvelCharacterDatabase
 import com.gabriela.marveltest.data.remote.MarvelAPI
-import com.gabriela.marveltest.domain.MarvelCharacterBusiness
 import com.gabriela.marveltest.domain.favorite.MarvelFavoriteBusiness
 import com.gabriela.marveltest.domain.main.MarvelCharacterHandlerBusiness
 import com.gabriela.marveltest.presentation.main.adapter.MarvelCharacterAdapter
@@ -27,11 +26,10 @@ val appModule = module {
             marvelCharacterDatabase = get()
         )
     }
-    single { MarvelCharacterBusiness(viewModel = get()) }
     factory { MarvelCharacterHandlerBusiness(repository = get()) }
     factory { MarvelFavoriteBusiness(repository = get()) }
     viewModel { MarvelCharacterViewModel(business = get()) }
     viewModel { MarvelFavoriteViewModel(business = get()) }
-    single { MarvelCharacterAdapter(marvelCharacterBusiness = get()) }
+    single { MarvelCharacterAdapter(viewModel = get()) }
     single { MarvelFavoriteAdapter() }
 }

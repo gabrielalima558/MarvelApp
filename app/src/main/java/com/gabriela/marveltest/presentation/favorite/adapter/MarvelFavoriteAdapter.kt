@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gabriela.marveltest.databinding.FavoriteCharacterItemBinding
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 
 class MarvelFavoriteAdapter : RecyclerView.Adapter<MarvelFavoriterViewHolder>() {
     private var items: List<Character> = emptyList()

@@ -1,7 +1,7 @@
 package com.gabriela.marveltest.presentation.favorite.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.gabriela.marveltest.domain.Character
+import com.gabriela.marveltest.domain.model.Character
 
 class MarvelFavoritesDiffCallback(
     private val oldList: List<Character>,
