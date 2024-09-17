@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         buildList()
         buildSearcher()
         openFavorites()
-        //
     }
 
     private fun openFavorites() {
