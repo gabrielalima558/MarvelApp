@@ -15,6 +15,9 @@ class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusin
     private var charactersState = MutableLiveData<CharacterState>()
     val charactersStateObserver: LiveData<CharacterState> = charactersState
 
+    private var filteredCharacters = MutableLiveData<List<Character>>()
+    val filteredCharactersObserver: LiveData<List<Character>> = filteredCharacters
+
     init {
         getCharacters()
     }
@@ -28,6 +31,20 @@ class MarvelCharacterViewModel(private val business: MarvelCharacterHandlerBusin
     fun insertFavoriteCharacter(character: Character) {
         viewModelScope.launch(Dispatchers.IO) {
             business.insertCharacter(character)
+        }
+    }
+
+    fun getFilteredCharacters(
+        filteredText: String = String(),
+        list: List<Character>
+    ) {
+        if (filteredText.isNotEmpty()) {
+            val filteredList = list.filter { character ->
+                character.name.contains(filteredText, ignoreCase = true)
+            }
+            filteredCharacters.value = filteredList
+        } else {
+            filteredCharacters.value = list
         }
     }
 }

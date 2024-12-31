@@ -48,13 +48,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun crateListByFilter(filteredText: String = String(), list: List<Character>) {
-        if (filteredText.isNotEmpty()) {
-            val filteredList = list.filter { character ->
-                character.name.contains(filteredText, ignoreCase = true)
-            }
-            marvelCharacterAdapter.updateItems(filteredList)
-        } else {
-            marvelCharacterAdapter.updateItems(list)
+        viewModel.getFilteredCharacters(filteredText, list)
+        viewModel.filteredCharactersObserver.observe(this) {
+            marvelCharacterAdapter.updateItems(it)
         }
     }
 
